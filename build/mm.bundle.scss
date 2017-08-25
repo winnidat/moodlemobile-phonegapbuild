@@ -52,9 +52,9 @@ $item-input-padding: 16px !default;
  * App Branding
  */
 .mm-bglogo {
-  background-color: $mm-color-init-screen; /* Change this to add a bg image or change color */
-  background: -webkit-radial-gradient($mm-color-init-screen-alt, $mm-color-init-screen);
-  background: radial-gradient($mm-color-init-screen-alt, $mm-color-init-screen);
+  background-color: #ff5c00; /* Change this to add a bg image or change color */
+  background: -webkit-radial-gradient(#ff7600, #ff5c00);
+  background: radial-gradient(#ff7600, #ff5c00);
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
@@ -73,17 +73,17 @@ $item-input-padding: 16px !default;
   }
 
   img {
-    width: $mm-init-screen-logo-width;
-    max-width: $mm-init-screen-logo-max-width;
+    width: 60%;
+    max-width: 300px;
     display: block;
     margin: 0 auto;
     margin-bottom: 30px;
   }
 
   .spinner {
-    color: $mm-init-screen-spinner-color;
-    stroke: $mm-init-screen-spinner-color;
-    fill: $mm-init-screen-spinner-color;
+    color: white;
+    stroke: white;
+    fill: white;
   }
 }
 
@@ -352,13 +352,6 @@ p.item-text-wrap {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-}
-.avatar-round {
-  max-width: 40px;
-  max-height: 40px;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
 }
 
 // Split pane.
@@ -977,23 +970,6 @@ mm-timer {
 .item-input .item-input-wrapper input {
   width: 100%;
   background: transparent;
-}
-
-mm-multiple-select {
-  cursor: pointer;
-
-  .item-stacked-label {
-    ion-label.input-label, p {
-      padding-right: 30px;
-      white-space: normal;
-    }
-  }
-  .icon.ion-android-arrow-dropdown {
-    font-size: 21px;
-    color: #999999;
-    right: 5px;
-  }
-
 }
 
 .button.mm-button-icon-small {
@@ -1657,37 +1633,6 @@ h2.invert {
     opacity: 0;
   }
 }
-
-// Textarea to copy text in browser or desktop. Don't use display none because otherwise it can't be selected.
-.mm-browser-copy-area {
-  position: absolute;
-  left: -10000px;
-}
-
-// Full screen modal.
-.modal-wrapper .modal.mm-fullscreen-modal {
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0
-}
-
-// Buttons in header in modals.
-.modal .bar-header .button {
-  border-color: transparent;
-  background: none;
-}
-
-::-webkit-calendar-picker-indicator, ::-webkit-inner-spin-button, ::-webkit-clear-button {
-  display: none;
-}
-
-*[ng-click] {
-  cursor: pointer;
-}
-
 .atto_image_preview {
     width: 100%;
     height: 100%;
@@ -1758,54 +1703,6 @@ h2.invert {
     max-width: calc(100% - 1em);
 }
 /*rtl:end:ignore*/
-/** This file is intended to translate fontawesome to ionicons while the font is not supported */
-
-.fa.icon {
-    @extend .ion;
-}
-
-.fa {
-    font-size: $button-icon-size;
-    width: $button-icon-size;
-    height: $button-icon-size;
-}
-
-/** Fixed width */
-.fa-fw {
-  width: (18em / 14);
-  text-align: center;
-}
-
-/** Uncomment for dev purposes, it will show an asterisk in red where a missing icon is */
-/*.fa:before {
-    color: red !important;
-    content: $ionicon-var-asterisk;
-}*/
-
-/** Icons translation */
-.fa-search-plus:before {
-    content: $ionicon-var-ios-search-strong;
-}
-
-.fa-cog:before {
-    content: $ionicon-var-gear-b;
-}
-
-.fa-trash:before {
-    content: $ionicon-var-trash-a;
-}
-
-.fa-thumbs-up:before {
-    content: $ionicon-var-thumbsup;
-}
-
-.fa-thumbs-down:before {
-    content: $ionicon-var-thumbsdown;
-}
-
-.fa-ban:before {
-    content: $ionicon-var-minus-circled;
-}
 /**
  * In this file we will reset ionic styles that can bother online html.
  */
@@ -2123,7 +2020,7 @@ $chart-size: 70px;
 $doughnut-border-size: 15px;
 $doughnut-dasharray: 173;
 $doughnut-empty-colour: $gray-light;
-$doughnut-fill-colour: $mm-color-light;
+$doughnut-fill-colour: $orange-light;
 $doughnut-border-colour:  $gray-dark;
 $doughnut-text-colour: $gray-darker;
 
@@ -2241,88 +2138,6 @@ $doughnut-text-colour: $gray-darker;
 mm-course-list-item .item-icon-left {
   color: $black;
 }
-.mm-capture-media-modal {
-    background-color: $gray-light;
-
-    .bar-header {
-        @include bar-style($bar-content-bg, $bar-content-border, $bar-content-text);
-
-        .button {
-            color: $bar-content-text;
-            font-weight: normal;
-        }
-    }
-
-    .mm-capture-media-modal-content {
-        text-align: center;
-
-        .mm-av-wrapper {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: table;
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            clear: both;
-        }
-
-        audio, video, img {
-            width: 100%;
-            height: 100%;
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-            object-fit: contain;
-
-            &.mm-webcam-stream {
-                -webkit-transform: scaleX(-1);
-                transform: scaleX(-1);
-            }
-        }
-
-        .mm-webcam-image-canvas {
-            display: none;
-        }
-
-        .mm-audio-record-container {
-            width: 100%;
-            height: 100%;
-
-            .mm-audio-canvas {
-                width: 100%;
-                height: 100%;
-            }
-
-            .mm-audio-captured {
-                width: 100%;
-            }
-        }
-    }
-
-
-    .bar-footer {
-        background-color: $gray;
-        border-top-color: $gray-dark;
-
-        .col {
-            padding: 0;
-            line-height: $bar-height - $bar-padding-portrait * 2;
-
-            .button-icon {
-                color: $black;
-            }
-
-            .ion-record, .ion-trash-a {
-                color: $red;
-            }
-        }
-    }
-}
-
 .mm-fileuploader-file-handler {
     input {
         position: absolute;
@@ -2333,7 +2148,6 @@ mm-course-list-item .item-icon-left {
         opacity: 0;
         outline: none;
         z-index: 100;
-        cursor: pointer;
     }
 }
 
@@ -2505,12 +2319,7 @@ mm-course-list-item .item-icon-left {
     background: $white;
     border: 1px solid $item-default-border;
   }
-
-  .mm-sitename, .mm-siteurl {
-    @if $mm-fixed-url { display: none; }
-  }
 }
-
 
 
 $mm-question-correct-color:         $green-dark !default;
@@ -2649,6 +2458,12 @@ li.mm-question-answer-incorrect,
   color: $base-color;
 }
 
+// Variables.
+$bar-side-menu-height: 80px !default;
+$bar-side-menu-color: $bar-content-bg !default;
+$bar-side-menu-border-color: $bar-content-border !default;
+$bar-side-menu-text-color: $bar-content-text !default;
+
 // Bar styles
 .bar-side-menu {
   @include bar-style($bar-side-menu-color, $bar-side-menu-border-color, $bar-side-menu-text-color);
@@ -2660,8 +2475,7 @@ li.mm-question-answer-incorrect,
   .item-avatar {
     margin-top: 0px !important; // MOBILE-959: Added to fix side menu header in iOS.
     h2,
-    p,
-    .icon {
+    p {
       color: $bar-side-menu-text-color;
     }
   }
@@ -2677,20 +2491,6 @@ li.mm-question-answer-incorrect,
   }
 }
 
-ion-side-menu li .item,
-ion-side-menu li.item {
-  border-color: $bar-side-menu-item-border-color;
-  background-color: $bar-side-menu-item-background-color;
-  color: $bar-side-menu-item-text-color;
-
-  .icon {
-    color: $bar-side-menu-item-icon-color;
-  }
-}
-
-ion-side-menu li.item.item-divider {
-  background-color: $bar-side-menu-item-divider-color;
-}
 
 .foreground-ion-edit.ion-edit:before {
     position: relative;
@@ -3233,144 +3033,6 @@ $mma-chat-notice-badge: "stable" !default;
         border-left: 0;
       }
     }
-  }
-}
-
-.mm-site_mod_data {
-  .recordcheckbox {
-    display: none;
-  }
-}
-
-.mm-data-contents {
-  overflow: visible;
-  white-space: normal;
-  word-break: break-word;
-  padding: $item-padding;
-  background-color: white;
-  border-top-width: $item-border-width;
-  border-bottom-width: $item-border-width;
-  border-style: solid;
-  border-color: $item-default-border;
-
-  table, tbody {
-    display: block;
-  }
-
-  tr {
-    @extend .row;
-    padding: 0;
-  }
-
-  td, th {
-    @extend .col;
-  }
-}
-
-#mma-mod_data-advanced-search-form,
-#mma-mod_data-edit-form  {
-  table {
-    width: 100%;
-  }
-  td {
-    vertical-align: top;
-  }
-
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"],
-  input[type="number"],
-  input[type="email"],
-  input[type="url"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="color"],
-  .item-select,
-  mm-attachments>.item-border {
-    width: 100%;
-    margin: -1px;
-    border: 1px solid $gray;
-    padding: 16px 0 16px 16px;
-    height: 56px;
-  }
-
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"] {
-    -webkit-appearance: none;
-  }
-
-  mm-attachments .item-media {
-    width: 100%;
-    margin: -1px;
-    border: 1px solid $gray;
-    height: 56px;
-  }
-
-  mm-multiple-select .item {
-    width: 100%;
-    margin: -1px;
-    border: 1px solid $gray;
-    padding: 16px 0 16px 16px;
-  }
-
-  mm-attachments + .item-stacked-label {
-    border-top: 0px;
-    padding: 0;
-    margin-right: 1px;
-
-    ion-label {
-      margin: 0;
-      padding-left: 16px;
-    }
-
-    input {
-      border: 0;
-      margin: 0;
-    }
-  }
-
-  mm-attachments .item {
-    width: 100%;
-    margin: -1px;
-    border: 1px solid $gray;
-    overflow: hidden;
-  }
-
-  .item-checkbox {
-    margin-right: 1px;
-  }
-
-  .item-input.item-select {
-    margin-bottom: -6px;
-
-    select {
-      width: 100%;
-      left: 0;
-      max-width: none;
-    }
-  }
-
-  .item-input.mm-latlong {
-    width: 100%;
-    margin: -1px;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-
-    input {
-      border: 0;
-    }
-  }
-
-  .mm-item-has-rich-text-editor {
-    margin-right: 1px;
   }
 }
 .mm-site_mod_feedback {
